@@ -28,6 +28,7 @@ export class ViewUserComponent implements OnInit {
   ngOnInit() {
     this.userList = this.userService.getUserInfo();
     console.log('USRE INFO: ', this.userList);
+    this.userService.cachedUserList = this.userList;
 
     this.dataSource = [];
     for(let i=0;i<this.userList.length;i++) {

@@ -5,6 +5,7 @@ import { UserInfoModel } from './models/UserInfoModel';
 export class UserService {
 
   selectedUserEmailId = '';
+  cachedUserList = new Array<UserInfoModel>();
   constructor() { }
 
   storeUserInfo(userInfo: UserInfoModel) {
