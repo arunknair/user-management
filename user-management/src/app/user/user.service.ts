@@ -4,6 +4,7 @@ import { UserInfoModel } from './models/UserInfoModel';
 @Injectable()
 export class UserService {
 
+  selectedUserEmailId = '';
   constructor() { }
 
   storeUserInfo(userInfo: UserInfoModel) {

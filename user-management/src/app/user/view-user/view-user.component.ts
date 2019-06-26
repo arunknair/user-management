@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { UserInfoModel } from '../models/UserInfoModel';
+import { Router } from '@angular/router';
 
 export class PeriodicElement {
   fname: string;
@@ -17,11 +18,12 @@ export class PeriodicElement {
 export class ViewUserComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['First Name', 'Last Name', 'Email ID', 'Phone Number'];
+  displayedColumns: string[] = ['First Name', 'Last Name', 'Email ID', 'Phone Number','Details'];
   dataSource = [];
 
   userList: Array<UserInfoModel>;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+              private router: Router) { }
 
   ngOnInit() {
     this.userList = this.userService.getUserInfo();
@@ -38,6 +40,12 @@ export class ViewUserComponent implements OnInit {
       this.dataSource.push(data);
     }
 
+  }
+
+  getUserDetails(email: string) {
+    console.log('details pageXOffset', email);
+    this.userService.selectedUserEmailId = email;
+    this.router.navigate(['user-details']);
   }
 
 }

@@ -5,11 +5,13 @@ import { CustomMaterialModule } from '../shared/custom-material/custom-material.
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './user.service';
 import { ViewUserComponent } from './view-user/view-user.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
   declarations: [
     AddUserComponent,
-    ViewUserComponent
+    ViewUserComponent,
+    UserDetailsComponent
   ],
   imports: [
     CommonModule,
