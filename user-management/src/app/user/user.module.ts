@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './user.service';
 import { ViewUserComponent } from './view-user/view-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import {OwlDateTimeModule, OwlNativeDateTimeModule} from "ng-pick-datetime";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { UserDetailsComponent } from './user-details/user-details.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   providers: [
     UserService

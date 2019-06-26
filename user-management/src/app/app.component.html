@@ -1,2 +1,10 @@
-<router-outlet></router-outlet>
-<app-side-nav></app-side-nav>>
+
+
+
+<mat-sidenav-container
+  class="example-container" [hasBackdrop]="false">
+  <app-side-nav></app-side-nav>
+<div class="main-content">
+    <router-outlet></router-outlet>
+</div>
+</mat-sidenav-container>

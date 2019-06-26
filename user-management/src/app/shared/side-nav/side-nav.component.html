@@ -1,12 +1,15 @@
-<mat-card class="sideNav-style">
+<mat-sidenav #sidenav [opened]="true">
+  <mat-card>
     <mat-list>
-        <mat-list-item>
-            <a [routerLink]="['add-user']">Add User</a>
-        </mat-list-item>
+      <mat-list-item [routerLink]="['add-user']">
+        Add User
+      </mat-list-item>
     </mat-list>
     <mat-list>
-            <mat-list-item>
-                <a [routerLink]="['view-user']">View User</a>
-            </mat-list-item>
-        </mat-list>
-</mat-card>
+      <mat-list-item [routerLink]="['view-user']">
+        View User
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</mat-sidenav>
+

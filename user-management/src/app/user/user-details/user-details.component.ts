@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { UserInfoModel } from '../models/UserInfoModel';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-details',
@@ -10,11 +11,12 @@ import { UserInfoModel } from '../models/UserInfoModel';
 export class UserDetailsComponent implements OnInit {
 
   selectedUser: UserInfoModel;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+              private router: Router) { }
 
   ngOnInit() {
-    let selectedMailId = this.userService.selectedUserEmailId;
-    let userList = this.userService.cachedUserList;
+    const selectedMailId = this.userService.selectedUserEmailId;
+    const userList = this.userService.cachedUserList;
     if (selectedMailId !== '') {
       console.log('selected Mail Id:: ', selectedMailId);
       this.selectedUser = userList.find(user => user.email === selectedMailId);
@@ -24,4 +26,7 @@ export class UserDetailsComponent implements OnInit {
     }
   }
 
+  returnToViewPage() {
+    this.router.navigate(['view-user']);
+  }
 }

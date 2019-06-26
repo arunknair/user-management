@@ -18,7 +18,7 @@ export class PeriodicElement {
 export class ViewUserComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['First Name', 'Last Name', 'Email ID', 'Phone Number','Details'];
+  displayedColumns: string[] = ['First Name', 'Last Name', 'Email ID', 'Phone Number', 'Details'];
   dataSource = [];
 
   userList: Array<UserInfoModel>;
@@ -31,7 +31,7 @@ export class ViewUserComponent implements OnInit {
     this.userService.cachedUserList = this.userList;
 
     this.dataSource = [];
-    for(let i=0;i<this.userList.length;i++) {
+    for (let i = 0; i < this.userList.length; i++) {
       console.log('***********', this.userList[i]);
       let data = new PeriodicElement();
       data.fname = this.userList[i].fname;

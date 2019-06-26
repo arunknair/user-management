@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonContentModule } from './shared/common-content/common-content.module';
 import { RouterModule } from '@angular/router';
+import {CustomMaterialModule} from "./shared/custom-material/custom-material.module";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     UserModule,
     CommonContentModule,
-    RouterModule 
+    RouterModule,
+    CustomMaterialModule
   ],
   providers: [
 
