@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserInfoModel } from '../models/UserInfoModel';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 
 const QUALIFICATIONS = [
@@ -31,26 +32,29 @@ export class AddUserComponent implements OnInit {
   dob: FormControl;
   qualifications = QUALIFICATIONS;
   constructor(private userService: UserService,
-              private router: Router) { }
+              private router: Router,
+              private toaster: ToastrService) { }
 
   ngOnInit() {
-    this.fname = new FormControl('');
-    this.lname = new FormControl('');
-    this.phone = new FormControl('', Validators.pattern('^[-+]?\d*$'));
-    this.email = new FormControl('', Validators.email);
-    this.gender = new FormControl();
-    this.degree = new FormControl();
-    this.address = new FormControl();
-    this.dob = new FormControl();
+    this.fname = new FormControl('', Validators.required);
+    this.lname = new FormControl('', Validators.required);
+    this.phone = new FormControl('', Validators.compose(
+      [Validators.pattern('^[0-9]*$'), Validators.required]));
+    this.email = new FormControl('', Validators.compose(
+      [Validators.email, Validators.required]));
+    this.gender = new FormControl('', Validators.required);
+    this.degree = new FormControl('', Validators.required);
+    this.address = new FormControl('', Validators.required);
+    this.dob = new FormControl('', Validators.required);
     this.form1 = new FormGroup({
-      'fname': this.fname,
-      'lname': this.lname,
-      'email': this.email,
-      'phone': this.phone,
-      'gender': this.gender,
-      'degree': this.degree,
-      'address': this.address,
-      'dob': this.dob,
+      fname: this.fname,
+      lname: this.lname,
+      email: this.email,
+      phone: this.phone,
+      gender: this.gender,
+      degree: this.degree,
+      address: this.address,
+      dob: this.dob,
     });
 
   }
@@ -60,9 +64,14 @@ export class AddUserComponent implements OnInit {
     userInfo = this.form1.value;
     this.userService.storeUserInfo(userInfo);
     this.router.navigate['add-user'];
+    this.toaster.success('User Added', 'Success', {
+      timeOut: 3000
+    });
+    this.form1.reset();
   }
 
   test() {
-    console.log('LOGINF HERE $$$$$$$$$$$$   ', this.form1.value);
+    console.log('LOGGING HERE $$$$$$$$$$$$   ', this.form1.value);
+    console.log('VALID HERE $$$$$$$$$$$$   ', this.form1.valid);
   }
 }

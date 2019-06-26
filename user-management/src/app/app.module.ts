@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonContentModule } from './shared/common-content/common-content.module';
 import { RouterModule } from '@angular/router';
 import {CustomMaterialModule} from "./shared/custom-material/custom-material.module";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {CustomMaterialModule} from "./shared/custom-material/custom-material.mod
     UserModule,
     CommonContentModule,
     RouterModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    ToastrModule.forRoot()
   ],
   providers: [
 

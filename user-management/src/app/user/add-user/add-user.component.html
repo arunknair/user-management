@@ -1,41 +1,57 @@
 
 <mat-card class="user-style">
-<mat-horizontal-stepper  #stepper>
-        <mat-step [stepControl]="form1">
+<!--<mat-horizontal-stepper  #stepper>-->
+<!--        <mat-step [stepControl]="form1">-->
            <form [formGroup]="form1">
-              <ng-template matStepLabel>PERSONAL DETAILS</ng-template>
+              <ng-template>PERSONAL DETAILS</ng-template>
               <mat-list>
                  <mat-list-item>
                     <mat-form-field>
-                       <input matInput type="text" placeholder="First name" [formControl]='fname' required>
+                       <input matInput type="text" placeholder="First name" [formControl]='fname'>
                     </mat-form-field>
                  </mat-list-item>
+                <mat-error *ngIf="fname.touched && !fname.valid">
+                  First Name required
+                </mat-error>
+                <br>
                  <mat-list-item>
                     <mat-form-field>
-                       <input matInput type="text" placeholder="Last name" [formControl]='lname' required>
+                       <input matInput type="text" placeholder="Last name" [formControl]='lname'>
                     </mat-form-field>
                  </mat-list-item>
+                <mat-error *ngIf="lname.touched && !lname.valid">
+                  Last Name required
+                </mat-error>
+                <br>
                  <mat-list-item>
                   <mat-form-field>
-                     <input matInput type="email" placeholder="Email ID" [formControl]='email' required>
+                     <input matInput type="email" placeholder="Email ID" [formControl]='email'>
                   </mat-form-field>
                </mat-list-item>
+                <mat-error *ngIf="email.touched && !email.valid">
+                  Enter a valid email id
+                </mat-error>
+                <br>
                <mat-list-item>
                   <mat-form-field>
-                     <input matInput type="text" placeholder="Phone Number" [formControl]='phone' required>
+                     <input matInput type="text" placeholder="Phone Number" [formControl]='phone'>
                   </mat-form-field>
                </mat-list-item>
-
+                <mat-error *ngIf="phone.touched && !phone.valid">
+                  Enter a valid First Name
+                </mat-error>
+                <br>
                 <mat-list-item>
                   <label>Gender</label>
                     <mat-radio-group aria-label="Select an option" style="margin-left: 5%;" [formControl]="gender">
                       <mat-radio-button value="1">Male</mat-radio-button><br>
                       <mat-radio-button value="2">Female</mat-radio-button>
                     </mat-radio-group>
-
                 </mat-list-item>
-
-
+                <mat-error *ngIf="gender.touched && !gender.valid">
+                  Enter a valid First Name
+                </mat-error>
+                <br>
                 <mat-list-item>
                   <mat-form-field>
                     <mat-label>Highest Degree</mat-label>
@@ -46,31 +62,35 @@
                     </mat-select>
                   </mat-form-field>
                 </mat-list-item>
-
-
+                <mat-error *ngIf="degree.touched && !degree.valid">
+                  Enter a valid First Name
+                </mat-error>
+                <br>
                 <mat-list-item>
                   <mat-form-field>
-                    <textarea matInput  placeholder="Address" [formControl]='address' required>
+                    <textarea matInput  placeholder="Address" [formControl]='address'>
                     </textarea>
                   </mat-form-field>
                 </mat-list-item>
-
-
+                <mat-error *ngIf="address.touched && !address.valid">
+                  Enter a valid First Name
+                </mat-error>
+                <br>
                 <mat-list-item>
-                  <label>Date of Birth</label>
+                  <label>Date of <br>Birth</label>
                     <input [owlDateTime]="dob1" [owlDateTimeTrigger]="dob1" [formControl]="dob" required style="margin-left: 5%;">
                     <owl-date-time #dob1></owl-date-time>
                 </mat-list-item>
-
-
-
+                <mat-error *ngIf="dob.touched && !dob.valid">
+                  Enter a valid First Name
+                </mat-error>
               </mat-list>
               <div>
-                 <button mat-button matStepperNext>Next</button>
+                 <button mat-button (click)="saveUserInfo()" [disabled]="!form1.valid">Save</button>
                 <button mat-button (click)="test()">LOG</button>
               </div>
            </form>
-        </mat-step>
+<!--        </mat-step>-->
         <!-- <mat-step [stepControl]="form2">
            <form [formGroup]="form2">
               <ng-template matStepLabel>CONTACT DETAILS</ng-template>
@@ -80,14 +100,14 @@
               </div>
            </form>
         </mat-step> -->
-        <mat-step>
-           <ng-template matStepLabel>CONFIRM</ng-template>
-           Please Confirm the given details.
-           <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button (click)="stepper.reset()">Reset</button>
-              <button mat-button (click)="saveUserInfo()">Save</button>
-           </div>
-        </mat-step>
-     </mat-horizontal-stepper>
+<!--        <mat-step>-->
+<!--           <ng-template matStepLabel>CONFIRM</ng-template>-->
+<!--           Please Confirm the given details.-->
+<!--           <div>-->
+<!--              <button mat-button matStepperPrevious>Back</button>-->
+<!--              <button mat-button (click)="stepper.reset()">Reset</button>-->
+<!--              <button mat-button (click)="saveUserInfo()">Save</button>-->
+<!--           </div>-->
+<!--        </mat-step>-->
+<!--     </mat-horizontal-stepper>-->
     </mat-card>
