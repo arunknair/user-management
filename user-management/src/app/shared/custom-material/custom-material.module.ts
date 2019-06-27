@@ -8,7 +8,7 @@ import {
   MatStepperModule,
   MatListModule,
   MatTableModule,
-  MatSidenavModule, MatGridListModule, MatRadioModule, MatSelectModule
+  MatSidenavModule, MatGridListModule, MatRadioModule, MatSelectModule, MatCheckboxModule
 } from '@angular/material';
 
 @NgModule({
@@ -25,7 +25,8 @@ import {
     MatSidenavModule,
     MatGridListModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   exports: [
     MatFormFieldModule,
@@ -38,7 +39,8 @@ import {
     MatSidenavModule,
     MatGridListModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ]
 })
 export class CustomMaterialModule { }

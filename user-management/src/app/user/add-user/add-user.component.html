@@ -37,7 +37,7 @@
                   </mat-form-field>
                </mat-list-item>
                 <mat-error *ngIf="phone.touched && !phone.valid">
-                  Enter a valid First Name
+                  Enter a valid Phone Number
                 </mat-error>
                 <br>
                 <mat-list-item>
@@ -48,7 +48,7 @@
                     </mat-radio-group>
                 </mat-list-item>
                 <mat-error *ngIf="gender.touched && !gender.valid">
-                  Enter a valid First Name
+                  Select a valid value
                 </mat-error>
                 <br>
                 <mat-list-item>
@@ -62,26 +62,49 @@
                   </mat-form-field>
                 </mat-list-item>
                 <mat-error *ngIf="degree.touched && !degree.valid">
-                  Enter a valid First Name
+                  Select a valid value
                 </mat-error>
                 <br>
                 <mat-list-item>
                   <mat-form-field>
-                    <textarea matInput  placeholder="Address" [formControl]='address'>
+                    <textarea matInput  placeholder="Residential Address" [formControl]='raddress'>
                     </textarea>
                   </mat-form-field>
                 </mat-list-item>
-                <mat-error *ngIf="address.touched && !address.valid">
-                  Enter a valid First Name
+                <mat-error *ngIf="raddress.touched && !raddress.valid">
+                  Enter a valid Address
                 </mat-error>
                 <br>
+
+                <mat-list-item>
+                    <mat-checkbox (change)="changeAddressStatus()">
+                      Residential Address same
+                      as Permanent Address?
+                    </mat-checkbox>
+                </mat-list-item>
+                <br>
+
+                <mat-list-item>
+                  <mat-form-field>
+                    <textarea matInput  placeholder="Permanent Address" [formControl]='paddress'>
+                    </textarea>
+                  </mat-form-field>
+                </mat-list-item>
+                <mat-error *ngIf="paddress.touched && !paddress.valid">
+                  Enter a valid Address
+                </mat-error>
+                <br>
+
+
+
+
                 <mat-list-item>
                   <label>Date of <br>Birth</label>
                     <input [owlDateTime]="dob1" [owlDateTimeTrigger]="dob1" [formControl]="dob" required style="margin-left: 5%;">
                     <owl-date-time #dob1></owl-date-time>
                 </mat-list-item>
                 <mat-error *ngIf="dob.touched && !dob.valid">
-                  Enter a valid First Name
+                  Enter a valid date
                 </mat-error>
               </mat-list>
               <div>

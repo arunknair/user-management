@@ -28,9 +28,11 @@ export class AddUserComponent implements OnInit {
   phone: FormControl;
   gender: FormControl;
   degree: FormControl;
-  address: FormControl;
+  paddress: FormControl;
+  raddress: FormControl;
   dob: FormControl;
   qualifications = QUALIFICATIONS;
+  isPermanentAddress: boolean;
   constructor(private userService: UserService,
               private router: Router,
               private toaster: ToastrService) { }
@@ -44,7 +46,8 @@ export class AddUserComponent implements OnInit {
       [Validators.email, Validators.required]));
     this.gender = new FormControl('', Validators.required);
     this.degree = new FormControl('', Validators.required);
-    this.address = new FormControl('', Validators.required);
+    this.paddress = new FormControl('', Validators.required);
+    this.raddress = new FormControl('', Validators.required);
     this.dob = new FormControl('', Validators.required);
     this.form1 = new FormGroup({
       fname: this.fname,
@@ -53,10 +56,21 @@ export class AddUserComponent implements OnInit {
       phone: this.phone,
       gender: this.gender,
       degree: this.degree,
-      address: this.address,
+      paddress: this.paddress,
+      raddress: this.raddress,
       dob: this.dob,
     });
+    this.isPermanentAddress = false;
+    this.userService. getAddressStatus().subscribe(data => {
+      this.isPermanentAddress =  data.valueOf();
 
+      if (this.isPermanentAddress) {
+          this.paddress.setValue(this.raddress.value);
+      } else {
+          this.paddress.reset();
+      }
+
+    });
   }
 
   saveUserInfo() {
@@ -74,5 +88,10 @@ export class AddUserComponent implements OnInit {
     console.log('LOGGING HERE $$$$$$$$$$$$   ', this.form1.value);
     console.log('VALID HERE $$$$$$$$$$$$   ', this.form1.valid);
     this.router.navigate(['test']);
+  }
+
+  changeAddressStatus() {
+    this.userService.setAddressStatus(!this.isPermanentAddress);
+    console.log('address status : ', !this.isPermanentAddress);
   }
 }
