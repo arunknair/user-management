@@ -1,7 +1,6 @@
 
+<mat-card class="header-style"><h1>ADD USER</h1></mat-card>
 <mat-card class="user-style">
-<!--<mat-horizontal-stepper  #stepper>-->
-<!--        <mat-step [stepControl]="form1">-->
            <form [formGroup]="form1">
               <ng-template>PERSONAL DETAILS</ng-template>
               <mat-list>
@@ -90,24 +89,4 @@
                 <button mat-button (click)="test()">LOG</button>
               </div>
            </form>
-<!--        </mat-step>-->
-        <!-- <mat-step [stepControl]="form2">
-           <form [formGroup]="form2">
-              <ng-template matStepLabel>CONTACT DETAILS</ng-template>
-              <div>
-                 <button mat-button matStepperPrevious>Back</button>
-                 <button mat-button matStepperNext>Next</button>
-              </div>
-           </form>
-        </mat-step> -->
-<!--        <mat-step>-->
-<!--           <ng-template matStepLabel>CONFIRM</ng-template>-->
-<!--           Please Confirm the given details.-->
-<!--           <div>-->
-<!--              <button mat-button matStepperPrevious>Back</button>-->
-<!--              <button mat-button (click)="stepper.reset()">Reset</button>-->
-<!--              <button mat-button (click)="saveUserInfo()">Save</button>-->
-<!--           </div>-->
-<!--        </mat-step>-->
-<!--     </mat-horizontal-stepper>-->
     </mat-card>
