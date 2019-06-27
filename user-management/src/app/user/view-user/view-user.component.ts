@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-import { UserInfoModel } from '../models/UserInfoModel';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../user.service';
+import {UserInfoModel} from '../models/UserInfoModel';
+import {Router} from '@angular/router';
 
 export class PeriodicElement {
   fname: string;
@@ -22,8 +22,10 @@ export class ViewUserComponent implements OnInit {
   dataSource = [];
 
   userList: Array<UserInfoModel>;
+
   constructor(private userService: UserService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.userList = this.userService.getUserInfo();

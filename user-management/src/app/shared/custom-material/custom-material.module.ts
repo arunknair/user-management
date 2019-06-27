@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {
   MatInputModule,
   MatFormFieldModule,
@@ -8,7 +8,11 @@ import {
   MatStepperModule,
   MatListModule,
   MatTableModule,
-  MatSidenavModule, MatGridListModule, MatRadioModule, MatSelectModule, MatCheckboxModule
+  MatSidenavModule,
+  MatGridListModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatCheckboxModule
 } from '@angular/material';
 
 @NgModule({
@@ -43,4 +47,5 @@ import {
     MatCheckboxModule
   ]
 })
-export class CustomMaterialModule { }
+export class CustomMaterialModule {
+}

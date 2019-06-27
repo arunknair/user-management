@@ -1,115 +1,112 @@
-
 <mat-card class="header-style"><h1>ADD USER</h1></mat-card>
 <mat-card class="user-style">
-           <form [formGroup]="form1">
-              <ng-template>PERSONAL DETAILS</ng-template>
-              <mat-list>
-                 <mat-list-item>
-                    <mat-form-field>
-                       <input matInput type="text" placeholder="First name" [formControl]='fname'>
-                    </mat-form-field>
-                 </mat-list-item>
-                <mat-error *ngIf="fname.touched && !fname.valid">
-                  First Name required
-                </mat-error>
-                <br>
-                 <mat-list-item>
-                    <mat-form-field>
-                       <input matInput type="text" placeholder="Last name" [formControl]='lname'>
-                    </mat-form-field>
-                 </mat-list-item>
-                <mat-error *ngIf="lname.touched && !lname.valid">
-                  Last Name required
-                </mat-error>
-                <br>
-                 <mat-list-item>
-                  <mat-form-field>
-                     <input matInput type="email" placeholder="Email ID" [formControl]='email'>
-                  </mat-form-field>
-               </mat-list-item>
-                <mat-error *ngIf="email.touched && !email.valid">
-                  Enter a valid email id
-                </mat-error>
-                <br>
-               <mat-list-item>
-                  <mat-form-field>
-                     <input matInput type="text" placeholder="Phone Number" [formControl]='phone'>
-                  </mat-form-field>
-               </mat-list-item>
-                <mat-error *ngIf="phone.touched && !phone.valid">
-                  Enter a valid Phone Number
-                </mat-error>
-                <br>
-                <mat-list-item>
-                  <label>Gender</label>
-                    <mat-radio-group aria-label="Select an option" style="margin-left: 5%;" [formControl]="gender">
-                      <mat-radio-button value="1">Male</mat-radio-button><br>
-                      <mat-radio-button value="2">Female</mat-radio-button>
-                    </mat-radio-group>
-                </mat-list-item>
-                <mat-error *ngIf="gender.touched && !gender.valid">
-                  Select a valid value
-                </mat-error>
-                <br>
-                <mat-list-item>
-                  <mat-form-field>
-                    <mat-label>Highest Degree</mat-label>
-                    <mat-select [formControl]="degree">
-                      <mat-option *ngFor="let degree of qualifications" [value]="degree.id">
-                        {{degree.degreeName}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </mat-list-item>
-                <mat-error *ngIf="degree.touched && !degree.valid">
-                  Select a valid value
-                </mat-error>
-                <br>
-                <mat-list-item>
-                  <mat-form-field>
-                    <textarea matInput  placeholder="Residential Address" [formControl]='raddress'>
+  <form [formGroup]="form1">
+    <ng-template>PERSONAL DETAILS</ng-template>
+    <mat-list>
+      <mat-list-item>
+        <mat-form-field>
+          <input matInput type="text" placeholder="First name" [formControl]='fname'>
+        </mat-form-field>
+      </mat-list-item>
+      <mat-error *ngIf="fname.touched && !fname.valid">
+        First Name required
+      </mat-error>
+      <br>
+      <mat-list-item>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Last name" [formControl]='lname'>
+        </mat-form-field>
+      </mat-list-item>
+      <mat-error *ngIf="lname.touched && !lname.valid">
+        Last Name required
+      </mat-error>
+      <br>
+      <mat-list-item>
+        <mat-form-field>
+          <input matInput type="email" placeholder="Email ID" [formControl]='email'>
+        </mat-form-field>
+      </mat-list-item>
+      <mat-error *ngIf="email.touched && !email.valid">
+        Enter a valid email id
+      </mat-error>
+      <br>
+      <mat-list-item>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Phone Number" [formControl]='phone'>
+        </mat-form-field>
+      </mat-list-item>
+      <mat-error *ngIf="phone.touched && !phone.valid">
+        Enter a valid Phone Number
+      </mat-error>
+      <br>
+      <mat-list-item>
+        <label>Gender</label>
+        <mat-radio-group aria-label="Select an option" style="margin-left: 5%;" [formControl]="gender">
+          <mat-radio-button value="1">Male</mat-radio-button>
+          <br>
+          <mat-radio-button value="2">Female</mat-radio-button>
+        </mat-radio-group>
+      </mat-list-item>
+      <mat-error *ngIf="gender.touched && !gender.valid">
+        Select a valid value
+      </mat-error>
+      <br>
+      <mat-list-item>
+        <mat-form-field>
+          <mat-label>Highest Degree</mat-label>
+          <mat-select [formControl]="degree">
+            <mat-option *ngFor="let degree of qualifications" [value]="degree.id">
+              {{degree.degreeName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-list-item>
+      <mat-error *ngIf="degree.touched && !degree.valid">
+        Select a valid value
+      </mat-error>
+      <br>
+      <mat-list-item>
+        <mat-form-field>
+                    <textarea matInput placeholder="Residential Address" [formControl]='raddress'>
                     </textarea>
-                  </mat-form-field>
-                </mat-list-item>
-                <mat-error *ngIf="raddress.touched && !raddress.valid">
-                  Enter a valid Address
-                </mat-error>
-                <br>
+        </mat-form-field>
+      </mat-list-item>
+      <mat-error *ngIf="raddress.touched && !raddress.valid">
+        Enter a valid Address
+      </mat-error>
+      <br>
 
-                <mat-list-item>
-                    <mat-checkbox (change)="changeAddressStatus()">
-                      Residential Address same
-                      as Permanent Address?
-                    </mat-checkbox>
-                </mat-list-item>
-                <br>
+      <mat-list-item>
+        <mat-checkbox (change)="changeAddressStatus()">
+          Residential Address same
+          as Permanent Address?
+        </mat-checkbox>
+      </mat-list-item>
+      <br>
 
-                <mat-list-item>
-                  <mat-form-field>
-                    <textarea matInput  placeholder="Permanent Address" [formControl]='paddress'>
+      <mat-list-item>
+        <mat-form-field>
+                    <textarea matInput placeholder="Permanent Address" [formControl]='paddress'>
                     </textarea>
-                  </mat-form-field>
-                </mat-list-item>
-                <mat-error *ngIf="paddress.touched && !paddress.valid">
-                  Enter a valid Address
-                </mat-error>
-                <br>
+        </mat-form-field>
+      </mat-list-item>
+      <mat-error *ngIf="paddress.touched && !paddress.valid">
+        Enter a valid Address
+      </mat-error>
+      <br>
 
 
-
-
-                <mat-list-item>
-                  <label>Date of <br>Birth</label>
-                    <input [owlDateTime]="dob1" [owlDateTimeTrigger]="dob1" [formControl]="dob" required style="margin-left: 5%;">
-                    <owl-date-time #dob1></owl-date-time>
-                </mat-list-item>
-                <mat-error *ngIf="dob.touched && !dob.valid">
-                  Enter a valid date
-                </mat-error>
-              </mat-list>
-              <div>
-                 <button mat-button (click)="saveUserInfo()" [disabled]="!form1.valid">Save</button>
-                <button mat-button (click)="test()">LOG</button>
-              </div>
-           </form>
-    </mat-card>
+      <mat-list-item>
+        <label>Date of <br>Birth</label>
+        <input [owlDateTime]="dob1" [owlDateTimeTrigger]="dob1" [formControl]="dob" required style="margin-left: 5%;">
+        <owl-date-time #dob1></owl-date-time>
+      </mat-list-item>
+      <mat-error *ngIf="dob.touched && !dob.valid">
+        Enter a valid date
+      </mat-error>
+    </mat-list>
+    <div>
+      <button mat-button (click)="saveUserInfo()" [disabled]="!form1.valid">Save</button>
+    </div>
+  </form>
+</mat-card>

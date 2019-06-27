@@ -9,7 +9,8 @@ import {MatSidenav} from "@angular/material";
 export class SideNavComponent implements OnInit {
   @ViewChild('sidenav', {static: false}) sidenav: MatSidenav;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

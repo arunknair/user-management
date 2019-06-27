@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SideNavComponent } from '../side-nav/side-nav.component';
-import { CustomMaterialModule } from '../custom-material/custom-material.module';
-import { RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {SideNavComponent} from '../side-nav/side-nav.component';
+import {CustomMaterialModule} from '../custom-material/custom-material.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,4 +17,5 @@ import { RouterModule } from '@angular/router';
     SideNavComponent
   ]
 })
-export class CommonContentModule { }
+export class CommonContentModule {
+}

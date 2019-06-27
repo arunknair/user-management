@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { UserInfoModel } from './models/UserInfoModel';
+import {Injectable} from '@angular/core';
+import {UserInfoModel} from './models/UserInfoModel';
 import {BehaviorSubject} from "rxjs";
 
 @Injectable()
@@ -9,7 +9,8 @@ export class UserService {
   cachedUserList = new Array<UserInfoModel>();
   isPermanentAddress = new BehaviorSubject<boolean>(false);
 
-  constructor() { }
+  constructor() {
+  }
 
   storeUserInfo(userInfo: UserInfoModel) {
     let userList = JSON.parse(sessionStorage.getItem('userList')) as Array<UserInfoModel>;

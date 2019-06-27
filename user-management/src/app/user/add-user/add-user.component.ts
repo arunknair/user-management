@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UserInfoModel } from '../models/UserInfoModel';
-import { UserService } from '../user.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {UserInfoModel} from '../models/UserInfoModel';
+import {UserService} from '../user.service';
+import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 
 
@@ -33,9 +33,11 @@ export class AddUserComponent implements OnInit {
   dob: FormControl;
   qualifications = QUALIFICATIONS;
   isPermanentAddress: boolean;
+
   constructor(private userService: UserService,
               private router: Router,
-              private toaster: ToastrService) { }
+              private toaster: ToastrService) {
+  }
 
   ngOnInit() {
     this.fname = new FormControl('', Validators.required);
@@ -61,13 +63,13 @@ export class AddUserComponent implements OnInit {
       dob: this.dob,
     });
     this.isPermanentAddress = false;
-    this.userService. getAddressStatus().subscribe(data => {
-      this.isPermanentAddress =  data.valueOf();
+    this.userService.getAddressStatus().subscribe(data => {
+      this.isPermanentAddress = data.valueOf();
 
       if (this.isPermanentAddress) {
-          this.paddress.setValue(this.raddress.value);
+        this.paddress.setValue(this.raddress.value);
       } else {
-          this.paddress.reset();
+        this.paddress.reset();
       }
 
     });
@@ -82,12 +84,7 @@ export class AddUserComponent implements OnInit {
       timeOut: 3000
     });
     this.form1.reset();
-  }
 
-  test() {
-    console.log('LOGGING HERE $$$$$$$$$$$$   ', this.form1.value);
-    console.log('VALID HERE $$$$$$$$$$$$   ', this.form1.valid);
-    this.router.navigate(['test']);
   }
 
   changeAddressStatus() {

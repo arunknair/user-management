@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-import { UserInfoModel } from '../models/UserInfoModel';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../user.service';
+import {UserInfoModel} from '../models/UserInfoModel';
 import {Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import { ToastrService } from 'ngx-toastr';
+import {ToastrService} from 'ngx-toastr';
 
 
 const QUALIFICATIONS = [
@@ -34,9 +34,11 @@ export class UserDetailsComponent implements OnInit {
   qualifications = QUALIFICATIONS;
   selectedMailId: string;
   userList: Array<UserInfoModel>;
+
   constructor(private userService: UserService,
               private router: Router,
-              private toaster: ToastrService) { }
+              private toaster: ToastrService) {
+  }
 
   ngOnInit() {
     this.selectedMailId = this.userService.selectedUserEmailId;
@@ -75,14 +77,14 @@ export class UserDetailsComponent implements OnInit {
   }
 
   saveEdited() {
-     console.log('before change : ', this.userList);
-     this.userList.splice( this.userList.findIndex(x => x.email === this.selectedMailId),1);
-     
-     const userInfo = this.form1.value;
-     this.userList.push(userInfo);
-     console.log('after change : ',this.userList);
-     this.userService.editUserInfo(this.userList);
-     this.toaster.success('User Data Edited', 'Success', {
+    console.log('before change : ', this.userList);
+    this.userList.splice(this.userList.findIndex(x => x.email === this.selectedMailId), 1);
+
+    const userInfo = this.form1.value;
+    this.userList.push(userInfo);
+    console.log('after change : ', this.userList);
+    this.userService.editUserInfo(this.userList);
+    this.toaster.success('User Data Edited', 'Success', {
       timeOut: 3000
     });
     this.form1.reset();
