@@ -31,15 +31,17 @@ export class UserDetailsComponent implements OnInit {
   address: FormControl;
   dob: FormControl;
   qualifications = QUALIFICATIONS;
+  selectedMailId: string;
+  userList: Array<UserInfoModel>;
   constructor(private userService: UserService,
               private router: Router) { }
 
   ngOnInit() {
-    const selectedMailId = this.userService.selectedUserEmailId;
-    const userList = this.userService.cachedUserList;
-    if (selectedMailId !== '') {
-      console.log('selected Mail Id:: ', selectedMailId);
-      this.selectedUser = userList.find(user => user.email === selectedMailId);
+    this.selectedMailId = this.userService.selectedUserEmailId;
+    this.userList = this.userService.cachedUserList;
+    if (this.selectedMailId !== '') {
+      console.log('selected Mail Id:: ', this.selectedMailId);
+      this.selectedUser = this.userList.find(user => user.email === this.selectedMailId);
       console.log('Selected User :  ', this.selectedUser);
 
       this.fname = new FormControl(this.selectedUser.fname, Validators.required);
@@ -63,12 +65,20 @@ export class UserDetailsComponent implements OnInit {
         dob: this.dob,
       });
 
-    } else {
-      console.log('moonji');
     }
   }
 
   returnToViewPage() {
     this.router.navigate(['view-user']);
+  }
+
+  saveEdited() {
+     console.log('before change : ', this.userList);
+     this.userList.splice( this.userList.findIndex(x => x.email === this.selectedMailId),1);
+     
+     const userInfo = this.form1.value;
+     this.userList.push(userInfo);
+     console.log('after change : ',this.userList);
+     this.userService.editUserInfo(this.userList);
   }
 }

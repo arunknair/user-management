@@ -73,5 +73,6 @@ export class AddUserComponent implements OnInit {
   test() {
     console.log('LOGGING HERE $$$$$$$$$$$$   ', this.form1.value);
     console.log('VALID HERE $$$$$$$$$$$$   ', this.form1.valid);
+    this.router.navigate(['test']);
   }
 }

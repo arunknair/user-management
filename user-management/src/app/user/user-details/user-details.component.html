@@ -1,12 +1,4 @@
 <mat-card class="user-style">
-<!--  <table>-->
-<!--    <tr> <td> First Name </td> <td> {{selectedUser.fname}} </td> </tr>-->
-<!--    <tr> <td> Last Name </td> <td> {{selectedUser.lname}} </td> </tr>-->
-<!--    <tr> <td> Email ID </td> <td> {{selectedUser.email}} </td> </tr>-->
-<!--    <tr> <td> Phone Number </td> <td> {{selectedUser.phone  }} </td> </tr>-->
-<!--  </table>-->
-
-
   <form [formGroup]="form1">
     <ng-template>PERSONAL DETAILS</ng-template>
     <mat-list>
@@ -90,10 +82,7 @@
         Enter a valid First Name
       </mat-error>
     </mat-list>
-<!--    <div>-->
-<!--      <button mat-button matStepperNext>Next</button>-->
-<!--      <button mat-button >LOG</button>-->
-<!--    </div>-->
   </form>
   <button mat-button (click)="returnToViewPage()">Back</button>
+  <button mat-button (click)="saveEdited()">Save</button>
 </mat-card>

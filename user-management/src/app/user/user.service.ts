@@ -24,4 +24,9 @@ export class UserService {
     }
     return userList;
   }
+
+  editUserInfo(userList: UserInfoModel[]) {
+    sessionStorage.clear();
+    sessionStorage.setItem('userList', JSON.stringify(userList));
+  }
 }
